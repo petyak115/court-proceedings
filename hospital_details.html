@@ -1,0 +1,188 @@
+<link rel="stylesheet" type="text/css" href="https://necromyhan.github.io/medical-data-storage/style.css">
+<html>
+<head>
+<title>Информация об отделении</title>
+</head>
+    <body>
+			
+	<div class="header">
+		<h1>Цифровое хранилище медицинских данных на базе блокчейн</h1>
+		<p>Диагностический центр №1</p>
+	</div>
+	
+	<p class="navig"><a href="hospital.html"><button type="submit" class="hidden" style='margin-right:16px'>Регистрация отделения</button></a><a href="doctor.html"><button type="submit" class="hidden" style='margin-right:16px'>Регистрация врача</button></a><a href="patient.html"><button type="submit" class="hidden" style='margin-right:16px'>Регистрация пациента</button></a><a href="patient_details.html"><button type="submit" class="hidden" style='margin-right:16px'>Просмотр информации о пациентах</button></a><a href="record_details.html"><button type="submit" class="hidden" style='margin-right:16px'>Просмотр записей пациентов</button></a><a href="examine_details.html"><button type="submit" class="hidden" style='margin-right:16px'>Результаты исследования</button></a></p>
+      
+        <
+        <script src="https://cdn.jsdelivr.net/npm/web3@1.2.8/dist/web3.js"></script>
+    <script>	
+	
+	var account;
+	window.addEventListener('load', async () => {
+
+	
+		if (typeof window.ethereum !== 'undefined') { 
+			console.log("MetaMask is Available :) !"); 
+			}
+			
+		// Modern DApp browsers
+		if (window.ethereum) {
+			window.web3 = new Web3(ethereum);
+			
+			// To prevent the page reloading when the MetaMask network changes
+			ethereum.autoRefreshOnNetworkChange = false;
+			
+			// To Capture the account details from MetaMask
+			const accounts = await ethereum.enable();
+			account = accounts[0];
+				
+			}
+		// Legacy DApp browsers
+		else if (window.web3) {
+			//window.web3 = new Web3(web3.currentProvider);
+			window.web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/v3/3b58840e0a3243e599200ccab6a3db0e")); 
+			}
+		// Non-DApp browsers
+		else {
+			console.log('Non-Ethereum browser detected. Please install MetaMask');
+			}
+			
+			});
+    	
+        var abi = [
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "hospital_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_hospital_name",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_hospital_address",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_hospital_spec",
+				"type": "string"
+			}
+		],
+		"name": "store_doctor_details",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "hospital_id",
+				"type": "uint256"
+			}
+		],
+		"name": "retreive_hospital_details",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+        var contractaddress = '0x93af9e83ee547d509dcb171acbbb598dde87fe8d';
+        
+        function add_details() {
+            var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '5000000', gas: '500000'});
+			var ds1 = document.getElementById("addr").value;
+			var ds2 = document.getElementById("spec").value;
+            var tname = document.getElementById("name1").value;
+            var id = document.getElementById("id1").value;
+             var result = myContract.methods.store_doctor_details(id,tname,ds1,ds2).send(function (err, result) {
+               
+                if (err) { console.log(err); }
+                if (result) { document.getElementById("result").innerHTML = result; }
+               
+                });
+        }
+		function show_details() {
+            var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '5000000', gas: '500000'});
+            var idd = document.getElementById("tid").value;
+             var result = myContract.methods.retreive_hospital_details(idd).call(function (err, result) {
+               
+                if (err) { console.log(err); }
+                if (result) { 
+                    document.getElementById("get_name").innerHTML = result[0];
+					document.getElementById("get_addr").innerHTML = result[1];
+					document.getElementById("get_spec").innerHTML = result[2];
+                }
+               
+                });
+        }
+        function del_details() {
+            var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '5000000', gas: '500000'});
+            var bid = document.getElementById("bid1").value;
+             var result = myContract.methods.burnMyToken(bid).send(function (err, result) {
+               
+                if (err) { console.log(err); }
+                if (result) { 
+                    document.getElementById("result1").innerHTML = result;
+                }
+               
+                });
+        }
+        </script>
+
+        <h3>Информация об отделении:</h3>
+        <form>
+		<table style="width:25%">
+		  <tr>
+			<td>Введите идентификатор отделения:</td>
+			<td><input type="text" id="tid" name="tid"></td>
+		  </tr>
+		  <tr><td><input type="button" onclick="show_details()" value="Получить информацию"></td></tr>
+            <tr>
+			<td>Наименование отделения:</td>
+			<td><div id="get_name"></div></td>
+		  </tr>
+		  <tr>
+			<td>Адресс отделения:</td>
+			<td><div id="get_addr"></div></td>
+		  </tr>
+		  <tr>
+			<td>Спецификация отделения:</td>
+			<td><div id="get_spec"></div></td>
+		  </tr>
+		</table>
+        </form>  
+		
+			<footer>
+		<div id="foot">
+			НИУ МИЭТ Москва, 2021
+		</div>
+	</footer>
+		
+    </body>
+</html>
