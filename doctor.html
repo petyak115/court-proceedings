@@ -134,7 +134,7 @@
              var result = myContract.methods.store_doctor_details(id,tname,ds1,ds2,ds3).send(function (err, result) {
                
                 if (err) { console.log(err); }
-               
+                if (result) { document.getElementById("result").innerHTML = result; }
                 });
         }
 		function show_details() {
