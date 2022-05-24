@@ -44,7 +44,7 @@ contract Patient {
       }
       
       
-      // modifier to give access only to hospital
+  
      
       
      
