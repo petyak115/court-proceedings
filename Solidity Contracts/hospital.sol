@@ -24,7 +24,7 @@ contract Hospital  {
       
     
       constructor() public {
-          owner = msg.sender;
+           owner = 0xcdb13bB268b8050A8a1Be66911d1f682492db4Dd; //Address of Hospital
       }
       
       
