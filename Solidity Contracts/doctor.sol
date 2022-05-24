@@ -22,7 +22,7 @@ contract Doctor {
      
    
       constructor()  public {
-          owner = 0xD84941ce56f6dfCf1e96ADa110d0386e00Ec6a7e; //Address of Hospital
+          owner = 0xcdb13bb268b8050a8a1be66911d1f682492db4dd; //Address of Hospital
       }             
       
      // modifier to give access only to hospital
