@@ -47,7 +47,7 @@ contract Patient {
            // modifier to give access only to hospital
       modifier isOwner() {
 
-         require(msg.sender == owner, "Access is not allowed");
+         
 
          _;
 
