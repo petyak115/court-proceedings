@@ -4,7 +4,7 @@ pragma solidity >=0.4.22 <0.7.0;
  * @dev Store & retreive Doctor details 
  */
  
- //contract address 0x6d49C6136Eb45E2815d3E7c73f41Ed12CB45DD54
+ //contract address 0x8173b7875a340754e969c1ae51e8983cbcb82005
 contract Doctor {
    
      
