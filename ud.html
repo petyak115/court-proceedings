@@ -134,12 +134,12 @@
              var result = myContract.methods.store_doctor_details(id,tname,ds1,ds2,ds3).send(function (err, result) {
                
                 if (err) { console.log(err); }
-                if (result) { document.getElementById("result").innerHTML = result; }
+           
                 });
         }
 		function show_details() {
             var myContract = new web3.eth.Contract(abi,contractaddress, {from: account, gasPrice: '5000000', gas: '500000'});
-            var idd = document.getElementById("id").value;
+            var idd = document.getElementById("tid").value;
              var result = myContract.methods.retreive_doctor_details(idd).call(function (err, result) {
                
                 if (err) { console.log(err); }
