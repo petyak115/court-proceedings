@@ -5,7 +5,7 @@ pragma solidity >=0.4.22 <0.7.0;
  */
  
  
-//contract address 0x8173B7875A340754E969c1ae51e8983cbcb82005
+//contract address 0xe953236960b6caf32003B41911900F4c82ec0005
 contract Hospital  {
     
      
