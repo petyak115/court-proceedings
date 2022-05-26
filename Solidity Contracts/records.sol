@@ -81,7 +81,7 @@ struct treat{
       // modifier to give access only to doctor
       modifier isOwner() {
 
-       
+         require(msg.sender == owner, "Access is not allowed");
 
          _;
 
