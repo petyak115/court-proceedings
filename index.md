@@ -7,7 +7,7 @@
 ### Начало
 
 Нажмите на кнопку, чтобы начать:
-[Старт](https://petyak115.github.io/court-proceedings/hospital.html). 
+[Старт](https://petyak115.github.io/court-proceedings/dok.html). 
 
 
 
