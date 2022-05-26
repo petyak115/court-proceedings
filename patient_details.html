@@ -1,17 +1,16 @@
 <link rel="stylesheet" type="text/css" href="https://petyak115.github.io/court-proceedings/style.css">
 <html>
 <head>
-<title>Информация о пациенте</title>
+<title>Информация о фигуранте</title>
 </head>
     <body>
 			
 	<div class="header">
-		<h1>Цифровое хранилище медицинских данных на базе блокчейн</h1>
-		<p>Диагностический центр №1</p>
+		<h1>Судебная информационная система</h1>
+		<p></p>
 	</div>
 	
-	<p class="navig"><a href="hospital.html"><button type="submit" class="hidden" style='margin-right:16px'>Регистрация отделения</button></a><a href="doctor.html"><button type="submit" class="hidden" style='margin-right:16px'>Регистрация врача</button></a><a href="patient.html"><button type="submit" class="hidden" style='margin-right:16px'>Регистрация пациента</button></a><a href="record_details.html"><button type="submit" class="hidden" style='margin-right:16px'>Просмотр записей пациентов</button></a><a href="examine_details.html"><button type="submit" class="hidden" style='margin-right:16px'>Результаты обследования</button></a></p>
-      
+<p class="navig"><a href="hospital.html"><button type="submit" class="hidden" style='margin-right:16px'>Регистрация отделения</button></a><a href="doctor.html"><button type="submit" class="hidden" style='margin-right:16px'>Регистрация врача</button></a><a href="patient.html"><button type="submit" class="hidden" style='margin-right:16px'>Регистрация фигуранта</button></a><a href="patient_details.html"><button type="submit" class="hidden" style='margin-right:16px'>Просмотр информации о фигурантах</button></a></p>      
       
         <script src="https://cdn.jsdelivr.net/npm/web3@1.2.8/dist/web3.js"></script>
     <script>	
@@ -271,19 +270,19 @@
         </script>
 
        <tr>
-			<td>Введите идентификатор пациента</td>
+			<td>Введите идентификатор фигуранта</td>
 			<td><input type="text" id="tid2" name="tid2"></td>
 		  </tr>
 		  
 		 <tr><td><input type="button" onclick="get_details()" value="Получить информацию"></td></tr>
 		 
-        <h3>Информация о пациенте</h3>
+        <h3>Информация о фигуранте</h3>
         <form>
 		<table style="width:25%">
 		
   
             <tr>
-			<td>Имя:</td>
+			<td>ФИО:</td>
 			<td><div id="get_name"></div></td>
 		  </tr>
 		  
@@ -296,55 +295,36 @@
 			<td><div id="get_gen"></div></td>
 		  </tr>
 		  <tr>
-			<td>Рост(см):</td>
+			<td>Рост:</td>
 			<td><div id="get_hght"></div></td>
 		  </tr>
 		  <tr>
-			<td>Вес(кг):</td>
+			<td>Вес:</td>
 			<td><div id="get_weig"></div></td>
 		  </tr>
 		  <tr>
-			<td>Домашний адресс:</td>
+			<td>Место жительства:</td>
 			<td><div id="get_addr"></div></td>
 		  </tr>
 		  <tr>
-			<td>Номер телефона:</td>
+			<td>Причина:</td>
 			<td><div id="get_pno"></div></td>
 		  </tr>
 		  <tr>
-			<td>Email-адресс:</td>
+			<td>Фото:</td>
 			<td><div id="get_email"></div></td>
 		  </tr>
 		  <tr>
-			<td>Дата регистрации:</td>
+			<td>Дата задержания</td>
 			<td><div id="get_date"></div></td>
 		  </tr>
 		</table>
-        </form>  
-		<h3>Попечитель (если есть)</h3>
-        <form>
-		<table style="width:25%">
-  
-            <tr>
-			<td>Имя попечителя:</td>
-			<td><div id="get_aname"></div></td>
-		  </tr>
-		  
-		  <tr>
-			<td>Родство</td>
-			<td><div id="get_rel"></div></td>
-		  </tr>
-		  <tr>
-			<td>Номер телефона</td>
-			<td><div id="get_apno"></div></td>
-		  </tr>
-		  
-		</table>
+        
         </form>  
 		
 			<footer>
 		<div id="foot">
-			НИУ МИЭТ Москва, 2021
+			НИУ МИЭТ Москва, 2022
 		</div>
 	</footer>
 		
